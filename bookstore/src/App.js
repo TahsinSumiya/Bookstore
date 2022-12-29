@@ -1,10 +1,26 @@
-
+import Bar from "./components/Bar";
+import { Routes , Route } from "react-router-dom";
+import React from "react";
+import Home from "./components/Home";
+import AddBook from './components/AddBook'
+import Books from './components/Book/Books'
+import About from './components/About'
+import BookDetail from './components/Book/BookDetail'
 function App() {
-  return (
-    <div >
-    Arafath
-    </div>
-  );
+  return <React.Fragment>
+    <header>
+      <Bar/>
+    </header>
+    <main>
+      <Routes>
+        <Route path="/" element={<Home/>} exact/>
+        <Route path="/add" element={<AddBook/>} exact/>
+        <Route path="/books" element={<Books/>} exact/>
+        <Route path="/about" element={<About/>} exact/>
+        <Route path="/books/:id" element={<BookDetail/>} exact/>
+      </Routes>
+    </main>
+  </React.Fragment>
 }
 
 export default App;
